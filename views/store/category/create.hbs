@@ -1,0 +1,58 @@
+
+<div id="main-wrapper">
+        
+        {{#if error_msg}}
+            <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+                {{error_msg}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+        {{/if}}
+
+        <div class="page-wrapper">
+            
+            <div class="row page-titles">
+                <div class="col-md-12 align-self-center">
+                    <h3 class="text-themecolor">New Category</h3>
+                </div>
+            </div>
+            
+            <div class="container-fluid">
+                
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Add</h4>
+                        <form class="form-material m-t-40" method="post" action="/store/category/save">
+
+                            <div class="form-group">
+                                <label>Category</label>
+                                <select class="form-control" name="parent_id">
+                                    <option value="0">Main Category</option>
+                                    {{#each data}}
+                                        <option value="{{this.id}}">{{this.name}}</option>
+                                    {{/each}}
+                                </select> 
+                            </div>
+
+                            <div class="form-group">
+                                <label>Category Name</label>
+                                <input type="text" class="form-control" name="name"> 
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-info waves-effect waves-light">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                   
+                
+            </div>
+            
+           
+            
+        </div>
+</div>
+
+    <script src="/plugins/jquery/jquery.min.js"></script>

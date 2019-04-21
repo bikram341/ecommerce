@@ -1,0 +1,41 @@
+<div id="main-wrapper">
+
+{{#if success_msg}}
+    <div class="alert alert-primary alert-dismissible fade show text-center" role="alert">
+        {{success_msg}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+{{/if}}
+        
+        
+        <div class="page-wrapper">
+            
+            <div class="row page-titles">
+                <div class="col-md-12 align-self-center">
+                    <h3 class="text-themecolor">Categories</h3>
+                </div>
+            </div>
+            
+            <div class="container-fluid">
+                   Categories To Show
+                {{#each data}}
+                    <ul>
+                        <li>{{this.name}}
+                            {{#if this.child}}
+                                {{&recursiveCategory this.child ''}}
+                            {{/if}}
+                        </li>
+                    </ul>
+                {{/each}}
+            </div>
+            
+        </div>
+        
+    </div>
+
+    <script src="/plugins/jquery/jquery.min.js"></script>
+    <!-- ============================================================== -->
+    <!-- This page plugins -->
+   

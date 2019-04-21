@@ -1,0 +1,8 @@
+<li>
+  {{this.name}}
+  <ul>
+    {{#each this.child}}
+      {{> multilevel}}
+    {{/each}}
+  </ul>
+</li>
